@@ -289,12 +289,11 @@ import audio
 class PlaySound(object):
     '''Play a wav file from the given path.'''
     
-    player = audio.Player()
-    
     def __init__(self, path):
         self.path = path
         
     def run(self, command):
+        player = audio.Player()
         player.play_wav(self, self.path)
         
 def make_actor(say):
