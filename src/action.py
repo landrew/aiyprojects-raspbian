@@ -282,7 +282,21 @@ class GpioWrite(object):
     def run(self, command):
         GPIO.output(self.gpio, self.value)
 
+# Playback a sound
 
+import audio
+
+class PlaySound(object):
+    '''Play a wav file from the given path.'''
+    
+    player = audio.Player()
+    
+    def __init__(self, path):
+        self.path = path
+        
+    def run(self, command):
+        player.play_wav(self, self.path)
+        
 def make_actor(say):
     """Create an actor to carry out the user's commands."""
 
@@ -310,7 +324,7 @@ def make_actor(say):
     actor.add_keyword('light on', GpioWrite(4, True))
     actor.add_keyword('light off', GpioWrite(4, False))
     
-    actor.add_keyword('play a fart', SpeakAction(say, 'Ew, farts are gross!'))
+    actor.add_keyword('play a fart', PlaySound('~/silly-fart.wav'))
 
     return actor
 
