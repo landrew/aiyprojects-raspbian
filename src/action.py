@@ -294,7 +294,7 @@ class PlaySound(object):
         
     def run(self, command):
         player = audio.Player()
-        player.play_wav(self, self.path)
+        player.play_wav(self.path)
         
 def make_actor(say):
     """Create an actor to carry out the user's commands."""
