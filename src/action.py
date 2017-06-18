@@ -262,6 +262,21 @@ class PowerCommand(object):
 # Makers! Implement your own actions here.
 # =========================================
 
+import RPi.GPIO as GPIO
+
+class GpioWrite(object):
+
+    '''Write the given value to the given GPIO.'''
+
+    def __init__(self, gpio, value):
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(gpio, GPIO.OUT)
+        self.gpio = gpio
+        self.value = value
+
+    def run(self, command):
+        GPIO.output(self.gpio, self.value)
+
 
 def make_actor(say):
     """Create an actor to carry out the user's commands."""
@@ -286,6 +301,9 @@ def make_actor(say):
 
     actor.add_keyword(_('raspberry power off'), PowerCommand(say, 'shutdown'))
     actor.add_keyword(_('raspberry reboot'), PowerCommand(say, 'reboot'))
+    
+    actor.add_keyword('light on', GpioWrite(4, True))
+    actor.add_keyword('light off', GpioWrite(4, False))
 
     return actor
 
