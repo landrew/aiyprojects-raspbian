@@ -284,7 +284,7 @@ class GpioWrite(object):
 
 # Playback a sound
 
-import audio
+import subprocess
 
 class PlaySound(object):
     '''Play a wav file from the given path.'''
@@ -293,8 +293,10 @@ class PlaySound(object):
         self.path = path
         
     def run(self, command):
-        player = audio.Player()
-        player.play_wav(self.path)
+        cmd = [
+            'aplay', self.path,
+        ]
+        player = subprocess.call(cmd)
         
 def make_actor(say):
     """Create an actor to carry out the user's commands."""
