@@ -323,7 +323,7 @@ def make_actor(say):
     actor.add_keyword('light on', GpioWrite(4, True))
     actor.add_keyword('light off', GpioWrite(4, False))
     
-    actor.add_keyword('play a fart', PlaySound('~/silly-fart.wav'))
+    actor.add_keyword('play a fart', PlaySound('silly-fart.wav'))
 
     return actor
 
