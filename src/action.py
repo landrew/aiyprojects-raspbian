@@ -262,6 +262,11 @@ class PowerCommand(object):
 # Makers! Implement your own actions here.
 # =========================================
 
+# Connect and Control another LED
+# ========================
+#
+# Control an LED that you've connected to GPIO 4 (Driver0)
+
 import RPi.GPIO as GPIO
 
 class GpioWrite(object):
@@ -304,6 +309,8 @@ def make_actor(say):
     
     actor.add_keyword('light on', GpioWrite(4, True))
     actor.add_keyword('light off', GpioWrite(4, False))
+    
+    actor.add_keyword('play a fart', SpeakAction(say, 'Ew, farts are gross!'))
 
     return actor
 
