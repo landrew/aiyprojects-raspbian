@@ -283,6 +283,9 @@ class GpioWrite(object):
         GPIO.output(self.gpio, self.value)
 
 # Playback a sound
+# ========================
+#
+# Play a sound (wav file) using aplay
 
 import subprocess
 
@@ -297,6 +300,33 @@ class PlaySound(object):
             'aplay', self.path,
         ]
         player = subprocess.call(cmd)
+
+# Play a fart
+# ========================
+#
+# Collection of fart sounds to enjoy
+
+class PlayFart(object):
+    '''Play a random fart sound'''
+    
+    def __init__(self, say):
+        self.say = say
+        
+    def run(self, say):
+        fart_sounds = [
+            'silly-fart.wav',
+            'bike-fart.wav',
+            'bronx-fart.wav',
+            'drive-by-fart.wav',
+            'oops-fart.wav',
+            'i-farted.wav',
+        ]
+        
+        num_farts = len(fart_sounds)
+        which_fart = int(random() * num_farts) - 1
+        
+        PlaySound(fart_sounds[which_fart])
+        
         
 def make_actor(say):
     """Create an actor to carry out the user's commands."""
@@ -326,6 +356,7 @@ def make_actor(say):
     actor.add_keyword('light off', GpioWrite(4, False))
     
     actor.add_keyword('play a fart', PlaySound('silly-fart.wav'))
+    actor.add_keyword('play another fart', PlayFart(say))
 
     return actor
 
