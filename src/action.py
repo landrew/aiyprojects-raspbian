@@ -327,8 +327,6 @@ class PlayFart(object):
         num_farts = len(fart_sounds)
         which_fart = random.randint(0, num_farts-1)
         filename = fart_sounds[which_fart]
-       
-        self.say('playing fart ' + str(which_fart) + filename)
         
         cmd = [
             'aplay', filename,
@@ -364,8 +362,7 @@ def make_actor(say):
     actor.add_keyword('light on', GpioWrite(4, True))
     actor.add_keyword('light off', GpioWrite(4, False))
     
-    actor.add_keyword('play a fart', PlaySound('silly-fart.wav'))
-    actor.add_keyword('play another fart', PlayFart(say))
+    actor.add_keyword('play a fart', PlayFart(say))
 
     return actor
 
