@@ -329,7 +329,8 @@ class PlayFart(object):
         filename = fart_sounds[which_fart]
        
         self.say('playing fart ' + str(which_fart) + filename)
-
+        
+        PlaySound('silly-fart.wav')
         PlaySound(filename)
         
         
