@@ -306,6 +306,8 @@ class PlaySound(object):
 #
 # Collection of fart sounds to enjoy
 
+import random
+
 class PlayFart(object):
     '''Play a random fart sound'''
     
@@ -323,7 +325,7 @@ class PlayFart(object):
         ]
         
         num_farts = len(fart_sounds)
-        which_fart = int(random() * num_farts) - 1
+        which_fart = random.randint(0, num_farts-1)
         
         PlaySound(fart_sounds[which_fart])
         
