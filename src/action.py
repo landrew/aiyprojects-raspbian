@@ -327,7 +327,7 @@ class PlayFart(object):
         num_farts = len(fart_sounds)
         which_fart = random.randint(0, num_farts-1)
         
-        self.say('playing fart ' + which_fart)
+        self.say('playing fart ' + str(which_fart))
         PlaySound(fart_sounds[which_fart])
         
         
