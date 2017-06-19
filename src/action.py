@@ -330,8 +330,11 @@ class PlayFart(object):
        
         self.say('playing fart ' + str(which_fart) + filename)
         
-        PlaySound('silly-fart.wav')
-        PlaySound(filename)
+        cmd = [
+            'aplay', filename,
+        ]
+        
+        player = subprocess.call(cmd)
         
         
 def make_actor(say):
