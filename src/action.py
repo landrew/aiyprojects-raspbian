@@ -316,12 +316,12 @@ class PlayFart(object):
         
     def run(self, say):
         fart_sounds = [
-            'silly-fart.wav',
-            'bike-fart.wav',
-            'bronx-fart.wav',
-            'drive-by-fart.wav',
-            'oops-fart.wav',
-            'i-farted.wav',
+            'sound/silly-fart.wav',
+            'sound/bike-fart.wav',
+            'sound/bronx-fart.wav',
+            'sound/drive-by-fart.wav',
+            'sound/oops-fart.wav',
+            'sound/i-farted.wav',
         ]
         
         num_farts = len(fart_sounds)
