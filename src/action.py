@@ -335,6 +335,24 @@ class PlayFart(object):
         player = subprocess.call(cmd)
         
         
+# Teach Froggy new skills
+# ========================
+#
+# My kids cannot code yet, so I'm going to give them the ability to teach froggy basic skills. We're going to need a lot of things.
+
+class Learn(object):
+    '''fes'''
+
+    def __init__(self, say, keyword):
+        self.say = say
+        self.keyword = keyword
+
+    def run(self, voice_command):
+        # The command still has the 'repeat after me' keyword, so we need to
+        # remove it before saying whatever is left.
+        to_repeat = voice_command.replace(self.keyword, '', 1)
+        self.say(to_repeat)
+
 def make_actor(say):
     """Create an actor to carry out the user's commands."""
 
@@ -363,6 +381,11 @@ def make_actor(say):
     actor.add_keyword('light off', GpioWrite(4, False))
     
     actor.add_keyword('play a fart', PlayFart(say))
+    actor.add_keyword('no farting', PlayFart(say))
+
+    actor.add_keyword('burp', PlayFart(say))
+
+    actor.add_keyword('learn', Learn(say, _('learn')))
 
     return actor
 
