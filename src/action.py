@@ -23,6 +23,10 @@ from rgbxy import Converter
 
 import actionbase
 
+from actions import iss
+from actions import tunein
+from actions import youtube
+
 # =============================================================================
 #
 # Hey, Makers!
@@ -386,6 +390,10 @@ def make_actor(say):
     actor.add_keyword('burp', PlayFart(say))
 
     actor.add_keyword('learn', Learn(say, _('learn')))
+
+    iss.Register(say, actor)
+    tunein.Register(say, actor)
+    youtube.Register(say, actor)
 
     return actor
 
