@@ -78,12 +78,13 @@ class TuneInRadio(object):
     def __init__(self, say, keyword):
         self.say = say
         self.keyword = keyword
-        self._init_player()
-        self._init_gpio(23)
         logging.info("tunein: registered keyword '%s'", self.keyword)
         
     def run(self, voice_command):
         
+        self._init_player()
+        self._init_gpio(23)
+
         search_str = voice_command.lower().replace(self.keyword, '', 1).strip()
      
         if not search_str:
