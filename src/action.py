@@ -391,9 +391,9 @@ def make_actor(say):
 
     actor.add_keyword('learn', Learn(say, _('learn')))
 
-    iss.Register(say, actor)
-    tunein.Register(say, actor)
-    youtube.Register(say, actor)
+    actions.iss.Register(say, actor)
+    actions.tunein.Register(say, actor)
+    actions.youtube.Register(say, actor)
 
     return actor
 
