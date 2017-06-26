@@ -23,9 +23,9 @@ from rgbxy import Converter
 
 import actionbase
 
-from actions import iss
-from actions import tunein
-from actions import youtube
+import actions.iss
+import actions.youtube
+import actions.tunein
 
 # =============================================================================
 #
