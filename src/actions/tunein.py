@@ -67,7 +67,7 @@ import logging
 def Register(say, actor):
     """Registers this plugin with the AIYProject"""
 
-    actor.add_keyword(_('tunein'), TuneInRadio(say,_('tunein')))
+    actor.add_keyword(_('radio'), TuneInRadio(say,_('radio')))
 
 class TuneInRadio(object):
     """Plays a radio stream from TuneIn radio"""
